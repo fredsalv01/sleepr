@@ -7,10 +7,13 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 export class ReservationDocument extends AbstractDocument {
   @Prop({ type: String, required: true })
   timestamp: Date;
+  
   @Prop({ type: String, required: true })
   startDate: Date;
+
   @Prop({ type: String, required: true })
   endDate: Date;
+  
   @Prop({ type: String, required: true })
   userId: string;
 
