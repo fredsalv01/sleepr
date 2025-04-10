@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
-import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+import { IsDate, IsDefined, IsNotEmpty, IsNumber, IsString, ValidateNested } from 'class-validator';
+import { CardDto } from './card.dto';
 
 export class CreateReservationDto {
   @IsDate()
@@ -17,4 +18,12 @@ export class CreateReservationDto {
   @IsString()
   @IsNotEmpty()
   invoiceId: string; // ID of the invoice associated with the reservation
+
+  @IsDefined()
+  @IsNotEmpty()
+  @ValidateNested()
+  card: CardDto;
+
+  @IsNumber()
+  amount: number;
 }
